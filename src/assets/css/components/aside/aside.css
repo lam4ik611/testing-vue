@@ -1,0 +1,20 @@
+.aside {
+    @extend %transition;
+
+    position: relative;
+    width: 25vw;
+    padding: 30px;
+    background-color: var(--gray-500);
+    visibility: hidden;
+    margin-left: -25vw;
+    transform: translateX(-25vw);
+    transition-timing-function: linear;
+    overflow: hidden;
+    z-index: 99;
+
+    &[data-active="true"] {
+        visibility: visible;
+        margin-left: 0;
+        transform: translateX(0);
+    }
+}

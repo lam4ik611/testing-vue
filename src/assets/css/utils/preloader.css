@@ -1,0 +1,23 @@
+%preloader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: block;
+    width: var(--preloader-dimension);
+    height: var(--preloader-dimension);
+    margin-left: calc(-1 * var(--preloader-dimension) / 2);
+    margin-top: calc(-1 * var(--preloader-dimension) / 2);
+    border: var(--preloader-color) var(--preloader-width) solid;
+    border-left-color: transparent;
+    border-radius: 50%;
+    animation: preloaderRotating 1s linear infinite;
+}
+
+@-webkit-keyframes preloaderRotating {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}

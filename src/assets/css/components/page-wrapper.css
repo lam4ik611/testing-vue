@@ -1,0 +1,18 @@
+/* it's not BEM */
+.page-wrapper {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    min-height: 100%;
+
+    &--hidden {
+        overflow-y: hidden;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+

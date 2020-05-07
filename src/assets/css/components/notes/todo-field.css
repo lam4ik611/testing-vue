@@ -1,0 +1,42 @@
+.todo-field {
+    padding: 20px 0;
+
+    &.checkbox label {
+        display: inline-block;
+    }
+
+    &.form-group {
+        margin-top: 40px;
+    }
+
+    &__edit,
+    &__save,
+    &__remove {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(-50%);
+        cursor: pointer;
+
+        &:hover {
+
+            svg {
+                color: var(--orange);
+            }
+        }
+
+        svg {
+            width: 100% !important;
+        }
+    }
+
+    &__edit {
+        right: 60px;
+        transform: translateY(-45%);
+    }
+}

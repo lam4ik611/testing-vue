@@ -1,0 +1,95 @@
+.note-card {
+    @extend %transition;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    border-radius: 5px;
+    background-color: var(--dark);
+    border: 1px solid var(--dark);
+    text-decoration: none;
+    cursor: pointer;
+
+    &--custom {
+        align-items: center;
+        justify-content: center;
+        animation: cardFade 3s ease-in-out infinite;
+
+        &:hover {
+            animation: none;
+        }
+
+        ^&__title {
+            font-size: var(--font-size-h2);
+        }
+    }
+
+    &:hover {
+        background-color: var(--gray-500);
+
+        .note-card__edit {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &__edit {
+        @extend %transition;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 30;
+
+        &:hover {
+
+            svg {
+                color: var(--orange);
+            }
+        }
+
+        svg {
+            color: var(--gray-200);
+        }
+    }
+
+    &__title {
+        font-size: 42px;
+        font-weight: var(--font-weight-medium);
+        color: var(--white);
+    }
+
+    &__todos {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__todo {
+        font-size: var(--font-size-large);
+        color: var(--gray-300);
+    }
+}
+
+@keyframes cardFade {
+    0% {
+        background-color: var(--dark);
+    }
+
+    50% {
+        background-color: #1a1a1a;
+    }
+
+    100% {
+        background-color: var(--dark);
+    }
+}

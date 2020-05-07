@@ -1,0 +1,26 @@
+h1, h2, h3 {
+    font-family: var(--font-family-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--white);
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+}
+
+p {
+    margin-top: var(--p-margin-top);
+    margin-bottom: var(--p-margin-bottom);
+}
+
+a {
+    color: var(--gray-500);
+}

@@ -1,0 +1,34 @@
+$screen-xs: 320px;
+$screen-sm: 768px;
+$screen-md: 1025px;
+
+/*$screen-xs: 576px;
+$screen-sm: 768px;
+$screen-md: 1024px;
+$screen-lg: 1200px;
+$screen-xlg: 1600px;
+$screen-xxlg: 1920px;*/
+
+:root {
+    --breakpoints: (
+        xs: $screen-xs,
+        sm: $screen-sm,
+        md: $screen-md,
+    );
+
+    --gutter-width: 30px;
+    --gutter-width-mobile: 20px;
+
+    --container-max-widths: (
+        md: calc(1150px + var(--gutter-width)),
+    );
+}
+
+/* Define custom media queries for breakpoints */
+@each $key, $value in var(--breakpoints) {
+    @custom-media --below-screen-$(key) (width < $value);
+    @custom-media --above-screen-$(key) (width >= $value);
+}
+
+@custom-media --xs-to-sm ($screen-xs <= width < $screen-sm);
+@custom-media --sm-to-md ($screen-sm <= width < $screen-md);

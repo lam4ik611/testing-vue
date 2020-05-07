@@ -1,0 +1,31 @@
+/* Input */
+:root {
+    --form-group-margin-bottom: 15px;
+
+
+    --input-height: 50px;
+    --input-border-width: 1px;
+    --input-border-color: var(--white);
+    --input-border-radius: 0;
+    --input-padding-y: 5px;
+    --input-padding-x: 13px;
+
+    --input-font-size: 22px;
+    --input-font-weight: 400;
+    --input-line-height: 1.25;
+    --input-color: var(--white);
+    --input-background: transparent;
+
+    --input-focus-border-color: var(--white);
+
+    --input-placeholder-color: var(--white);
+
+    --input-disabled-background: var(--gray-200);
+
+
+    --label-margin-bottom: 5px;
+    --label-font-size: 22px;
+    --label-font-size-focus: 18px;
+    --label-font-weight: 400;
+    --label-color: var(--white);
+}

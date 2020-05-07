@@ -1,0 +1,10 @@
+:root {
+    --body-background: var(--gray-500);
+
+    --transition-timing-function: ease;
+    --transition-duration: 0.2s;
+
+    --preloader-dimension: 50px;
+    --preloader-width: 3px;
+    --preloader-color: black;
+}

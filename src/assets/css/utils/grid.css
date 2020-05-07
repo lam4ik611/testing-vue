@@ -1,0 +1,109 @@
+%container {
+    width: 100%;
+    height: 100%;
+    padding-right: calc(var(--gutter-width) / 2);
+    padding-left: calc(var(--gutter-width) / 2);
+    margin-right: auto;
+    margin-left: auto;
+
+    @each $key, $width in var(--container-max-widths) {
+        @media (--above-screen-$(key)) {
+            max-width: $width;
+        }
+    }
+
+    @add-mixin media-breakpoint-down sm {
+        padding-right: calc(var(--gutter-width-mobile) / 2);
+        padding-left: calc(var(--gutter-width-mobile) / 2);
+    }
+}
+
+%col {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: calc(var(--gutter-width) / 2);
+    padding-left: calc(var(--gutter-width) / 2);
+
+    @add-mixin media-breakpoint-down sm {
+        padding-right: calc(var(--gutter-width-mobile) / 2);
+        padding-left: calc(var(--gutter-width-mobile) / 2);
+    }
+}
+
+%row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+
+    @add-mixin media-breakpoint-down sm {
+        margin-right: -10px;
+        margin-left: -10px;
+    }
+}
+
+@each $key, $width, $i in var(--breakpoints) {
+    @if $i == 0 {
+        %col-auto {
+            @extend %col;
+        }
+
+        @for $i from 1 to 12 {
+            %col-$(i) {
+                @extend %col;
+            }
+        }
+
+        %col {
+            flex-basis: 0;
+            flex-grow: 1;
+            max-width: 100%;
+        }
+
+        %col-auto {
+            flex: 0 0 auto;
+            width: auto;
+            max-width: none;
+        }
+
+        @for $i from 1 to 12 {
+            %col-$(i) {
+                flex: 0 0 calc($i / 12 * 100%);
+                max-width: calc($i / 12 * 100%);
+            }
+        }
+    }
+
+    %col-$(key),
+    %col-$(key)-auto {
+        @extend %col;
+    }
+
+    @for $i from 1 to 12 {
+        %col-$(key)-$(i) {
+            @extend %col;
+        }
+    }
+
+    @media (--above-screen-$(key)) {
+        %col-$(key) {
+            flex-basis: 0;
+            flex-grow: 1;
+            max-width: 100%;
+        }
+
+        %col-$(key)-auto {
+            flex: 0 0 auto;
+            width: auto;
+            max-width: none;
+        }
+
+        @for $i from 1 to 12 {
+            %col-$(key)-$(i) {
+                flex: 0 0 calc($i / 12 * 100%);
+                max-width: calc($i / 12 * 100%);
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+.form-group-validate {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-size-extrasmall);
+    color: var(--red);
+    margin-left: 15px;
+}

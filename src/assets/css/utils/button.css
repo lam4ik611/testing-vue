@@ -1,0 +1,108 @@
+@define-mixin button-size $font-size-base, $btn-padding {
+    font-size: $font-size-base;
+    padding: $btn-padding;
+}
+
+@define-mixin button-variant $key {
+    color: var(--btn-$(key)-color);
+    border-color: var(--btn-$(key)-border);
+    background-color: var(--btn-$(key)-bg);
+
+    &:hover,
+    &:focus {
+        color: var(--btn-$(key)-hover-color);
+        border-color: var(--btn-$(key)-hover-border);
+        background-color: var(--btn-$(key)-hover-bg);
+    }
+
+    &:active,
+    &.active {
+        color: var(--btn-$(key)-active-color);
+        border-color: var(--btn-$(key)-active-border);
+        background-color: var(--btn-$(key)-active-bg);
+    }
+
+    &:disabled,
+    &.disabled {
+        color: var(--btn-$(key)-disabled-color);
+        border-color: var(--btn-$(key)-disabled-border);
+        background-color: var(--btn-$(key)-disabled-bg);
+    }
+}
+
+%btn {
+    @extend %transition;
+
+    display: inline-block;
+    border: var(--btn-border-width) solid var(--btn-border-color);
+    padding: var(--btn-padding);
+    font-size: var(--btn-font-size);
+    font-weight: var(--btn-font-weight);
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    transition-property: color, border-color, background-color;
+
+    @add-mixin button-size var(--btn-font-size), var(--btn-padding);
+
+    &:focus {
+        outline: 0;
+    }
+
+    &:not(.disabled):not(:disabled) {
+        cursor: pointer;
+    }
+}
+
+%btn-sm {
+    @add-mixin button-size var(--btn-sm-font-size), var(--btn-sm-padding);
+}
+
+%btn-lg {
+    @add-mixin button-size var(--btn-lg-font-size), var(--btn-lg-padding);
+}
+
+%btn-block {
+    display: block;
+    width: 100%;
+}
+
+%btn-link {
+    @extend %btn;
+
+    font-weight: var(--btn-link-font-weight);
+    color: var(--btn-link-color);
+
+    &:hover,
+    &:focus {
+        color: var(--btn-link-hover-color);
+        text-decoration: var(--btn-link-hover-decoration);
+    }
+
+    &:active,
+    &.active {
+        color: var(--btn-link-active-color);
+        text-decoration: var(--btn-link-hover-decoration);
+    }
+
+    &:disabled,
+    &.disabled {
+        color: var(--btn-link-disabled-color);
+    }
+}
+
+@each $key, $value in var(--btn-type) {
+    %btn-$(key) {
+        @extend %btn;
+
+        @add-mixin button-variant $(key);
+
+        a&.disabled,
+        fieldset:disabled a & {
+            pointer-events: none;
+        }
+    }
+}

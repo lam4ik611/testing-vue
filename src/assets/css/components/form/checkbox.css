@@ -1,0 +1,64 @@
+.checkbox {
+    position: relative;
+
+    input:checked ~ label::after {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    input:disabled ~ label {
+        cursor: not-allowed;
+    }
+
+    input:disabled ~ label::after {
+        display: none;
+    }
+
+    input:disabled ~ label::before {
+        background-color: var(--gray-100);
+        border: none;
+    }
+
+    label {
+        position: relative;
+        top: 0;
+        padding-left: 40px;
+        font-size: var(--font-size-large);
+        transform: none;
+        cursor: pointer;
+
+
+        &::before,
+        &::after {
+            position: absolute;
+            content: '';
+        }
+
+        &::before {
+            top: 50%;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            border: 1px solid var(--white);
+            transform: translateY(-50%);
+        }
+
+        &::after {
+            @extend %transition;
+
+            top: 50%;
+            left: 4px;
+            width: 16px;
+            height: 16px;
+            transform: translateY(-50%);
+            opacity: 0;
+            visibility: hidden;
+            background-color: var(--white);
+            transition-property: transform, opacity;
+        }
+    }
+
+    input {
+        @extend .sr-only;
+    }
+}

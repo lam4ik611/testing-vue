@@ -1,0 +1,54 @@
+@define-mixin caret-down {
+    border-top: var(--caret-width) solid;
+    border-right: var(--caret-width) solid transparent;
+    border-bottom: 0;
+    border-left: var(--caret-width) solid transparent;
+}
+
+@define-mixin caret-up {
+    border-top: 0;
+    border-right: var(--caret-width) solid transparent;
+    border-bottom: var(--caret-width) solid;
+    border-left: var(--caret-width) solid transparent;
+}
+
+@define-mixin caret-right {
+    border-top: var(--caret-width) solid transparent;
+    border-bottom: var(--caret-width) solid transparent;
+    border-left: var(--caret-width) solid;
+}
+
+@define-mixin caret-left {
+    border-top: var(--caret-width) solid transparent;
+    border-right: var(--caret-width) solid;
+    border-bottom: var(--caret-width) solid transparent;
+}
+
+@define-mixin caret $direction: down {
+    @if $direction == left {
+        &::before {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            vertical-align: middle;
+            content: '';
+            @add-mixin caret-left;
+        }
+    } @else {
+        &::after {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            vertical-align: middle;
+            content: '';
+
+            @if $direction == down {
+                @add-mixin caret-down;
+            } @else if $direction == up {
+                @add-mixin caret-up;
+            } @else if $direction == right {
+                @add-mixin caret-right;
+            }
+        }
+    }
+}

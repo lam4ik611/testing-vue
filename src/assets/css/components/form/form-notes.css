@@ -1,0 +1,14 @@
+.form-notes {
+    font-size: var(--font-size-small);
+
+    &,
+    &__item::before {
+        position: relative;
+    }
+
+    &__item::before {
+        content: '*';
+        margin-right: 5px;
+        color: red;
+    }
+}

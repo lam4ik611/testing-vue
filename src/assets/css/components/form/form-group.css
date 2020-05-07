@@ -1,0 +1,6 @@
+.form-group {
+    position: relative;
+    /* space for label */
+    padding-top: 10px;
+    margin-bottom: var(--form-group-margin-bottom);
+}

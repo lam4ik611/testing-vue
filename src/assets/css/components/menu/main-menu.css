@@ -1,0 +1,39 @@
+.main-menu {
+    display: flex;
+    flex-direction: column;
+
+    &__link {
+        @extend %transition;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+        font-size: var(--font-size-large);
+        font-weight: var(--font-weight-medium);
+        color: var(--white);
+        text-transform: uppercase;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover,
+        &.router-link-active {
+            color: var(--orange);
+
+            svg {
+                fill: var(--orange);
+            }
+        }
+
+        svg {
+            height: auto;
+        }
+    }
+
+    &__link-name {
+        margin-top: 2px;
+        margin-left: 15px;
+        line-height: 1;
+        white-space: nowrap;
+    }
+}

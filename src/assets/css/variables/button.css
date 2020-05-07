@@ -1,0 +1,61 @@
+/* Buttons */
+:root {
+    /* sizes */
+    --btn-height: 34px; /* --input-height */
+    --btn-border-width: 1px;
+    --btn-border-color: transparent;
+    --btn-padding: 16px 70px 15px;
+    --btn-font-size: 14px;
+    --btn-font-weight: 500;
+    --btn-border-radius: 0;
+
+    --btn-lg-padding: 20px 50px 15px;
+    --btn-lg-font-size: 16px;
+
+    --btn-sm-padding: 12px 50px 8px;
+    --btn-sm-font-size: 12px;
+
+    --btn-disabled-opacity: .65;
+
+    /* types */
+    --btn-type: (
+        default: transparent,
+        primary: black
+    );
+
+    /* default */
+    --btn-default-color: var(--white);
+    --btn-default-border: var(--white);
+    --btn-default-bg: transparent;
+    --btn-default-hover-color: var(--gray-500);
+    --btn-default-hover-border: var(--gray-500);
+    --btn-default-hover-bg: var(--gray-200);
+    --btn-default-active-color: var(--gray-500);
+    --btn-default-active-border: transparent;
+    --btn-default-active-bg: var(--white);
+    --btn-default-disabled-color: var(--gray-200);
+    --btn-default-disabled-border: transparent;
+    --btn-default-disabled-bg: var(--gray-500);
+
+    /* primary */
+    --btn-primary-color: var(--white);
+    --btn-primary-border: transparent;
+    --btn-primary-bg: var(--gray-500);
+    --btn-primary-hover-color: var(--white);
+    --btn-primary-hover-border: transparent;
+    --btn-primary-hover-bg: var(--gray-300);
+    --btn-primary-active-color: var(--white);
+    --btn-primary-active-border: transparent;
+    --btn-primary-active-bg: var(--gray-300);
+    --btn-primary-disabled-color: var(--white);
+    --btn-primary-disabled-border: transparent;
+    --btn-primary-disabled-bg: var(--gray-300);
+
+    --btn-link-font-weight: var(--btn-font-weight);
+    --btn-link-color: black;
+    --btn-link-decoration: underline;
+    --btn-link-hover-color: black;
+    --btn-link-hover-decoration: none;
+    --btn-link-active-color: black;
+    --btn-link-disabled-color: grey;
+}

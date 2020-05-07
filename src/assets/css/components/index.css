@@ -1,0 +1,11 @@
+@import './aside';
+@import './header';
+@import './menu';
+@import './modal';
+@import './notes';
+@import './form';
+
+@import './page-wrapper.css';
+@import './logo.css';
+@import './main.css';
+@import './img.css';

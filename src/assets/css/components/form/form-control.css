@@ -1,0 +1,70 @@
+.form-control {
+    @extend %transition;
+
+    display: block;
+    width: 100%;
+    height: var(--input-height);
+    border-radius: var(--input-border-radius);
+    padding: var(--input-padding-y) var(--input-padding-x);
+    font-size: var(--input-font-size);
+    font-weight: var(--input-font-weight);
+    line-height: var(--input-line-height);
+    color: var(--input-color);
+    border: none;
+    border-bottom: var(--input-border-width) solid var(--input-border-color);
+    background-color: var(--input-background);
+    background-clip: padding-box;
+    transition-property: border-color;
+    z-index: 1;
+
+    &:focus {
+        border-color: var(--input-focus-border-color);
+        outline: 0;
+    }
+
+    &::-ms-expand {
+        background-color: transparent;
+        border: 0;
+    }
+
+    &::placeholder {
+        line-height: 2;
+        color: var(--input-placeholder-color);
+    }
+
+    &:not(:placeholder-shown) + .control-label,
+    &:focus + .control-label {
+        transform: none;
+        font-size: var(--label-font-size-focus);
+    }
+
+    &:disabled,
+    &.disabled,
+    &[readonly] {
+        background-color: var(--input-disabled-background);
+    }
+
+    &[type='number'] {
+        -moz-appearance:textfield;
+    }
+
+    &[type=number]::-webkit-inner-spin-button,
+    &[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+    }
+
+    select& {
+        &:not([size]):not([multiple]) {
+            height: var(--input-height);
+        }
+
+        &:focus::-ms-value {
+            color: var(--input-color);
+            background-color: var(--input-background);
+        }
+    }
+
+    textarea& {
+        min-height: 70px;
+    }
+}

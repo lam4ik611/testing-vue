@@ -1,0 +1,20 @@
+.header {
+    width: 100%;
+    background-color: var(--dark);
+
+    &__container {
+        @extend %container;
+     }
+
+    &__content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 40px;
+    }
+
+    &__toggle {
+        display: flex;
+        align-items: center;
+    }
+}

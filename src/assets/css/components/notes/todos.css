@@ -1,0 +1,53 @@
+.todos {
+
+    &__add-todo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 15px;
+        margin-bottom: 15px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+
+        svg {
+            color: var(--white);
+        }
+
+        &:hover {
+
+            svg {
+                color: var(--orange);
+            }
+
+            ^&__add-todo-text {
+                color: var(--orange);
+            }
+        }
+
+        &:active {
+
+            svg {
+                color: var(--red);
+            }
+
+            ^&__add-todo-text {
+                color: var(--red);
+            }
+        }
+    }
+
+    &__add-todo-text {
+        @extend %transition;
+
+        margin-left: 10px;
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-medium);
+        color: var(--white);
+        text-transform: uppercase;
+    }
+
+    &__todo-field {
+        padding-left: 18px;
+    }
+}

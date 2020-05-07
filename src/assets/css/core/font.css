@@ -1,0 +1,38 @@
+/* Include font */
+
+@font-face {
+    font-family: 'Gotham Pro';
+    src: url('../../fonts/gothampro-light.woff2') format('woff2'),
+    url('../../fonts/gothampro-light.woff') format('woff'),
+    url('../../fonts/GothamPro-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Pro';
+    src: url('../../fonts/gothampro.woff2') format('woff2'),
+        url('../../fonts/gothampro.woff') format('woff'),
+        url('../../fonts/GothamPro.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Pro';
+    src: url('../../fonts/gothampro-medium.woff2') format('woff2'),
+    url('../../fonts/gothampro-medium.woff') format('woff'),
+    url('../../fonts/GothamPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Pro';
+    src: url('../../fonts/gothampro-bold.woff2') format('woff2'),
+    url('../../fonts/gothampro-bold.woff') format('woff'),
+    url('../../fonts/GothamPro-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+

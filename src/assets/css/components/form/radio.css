@@ -1,0 +1,70 @@
+.radio {
+    input:checked ~ label::after {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    input:disabled ~ label {
+        cursor: not-allowed;
+    }
+
+    input:disabled ~ label::before {
+        background-color: var(--gray-200);
+        border: none;
+    }
+
+    label {
+        position: relative;
+        padding: 5px 0 5px 22px;
+        font-size: var(--font-size-large);
+        cursor: pointer;
+
+        &::before,
+        &::after {
+            position: absolute;
+            content: '';
+            border-radius: 50%;
+        }
+
+        &::before {
+            top: calc(50% - 7px);
+            left: 0;
+            width: 14px;
+            height: 14px;
+            border: 1px solid var(--white);
+        }
+
+        &::after {
+            @extend %transition;
+
+            top: calc(50% - 4px);
+            left: 3px;
+            width: 8px;
+            height: 8px;
+            visibility: hidden;
+            opacity: 0;
+            background-color: var(--white);
+            transition-property: transform, opacity;
+        }
+    }
+
+    &--column {
+
+        label {
+            display: flex;
+            flex-direction: column;
+
+            &::before {
+                top: 7px;
+            }
+
+            &::after {
+                top: 10px;
+            }
+        }
+    }
+
+    input {
+        @extend .sr-only;
+    }
+}

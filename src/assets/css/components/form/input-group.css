@@ -1,0 +1,20 @@
+.input-group {
+    display: flex;
+
+    &__prepend,
+    &__append {
+
+    }
+
+    &__prepend {
+        margin-right: -1px;
+    }
+
+    &__append {
+        margin-left: -1px;
+    }
+
+    &__control {
+        flex-grow: 1;
+    }
+}

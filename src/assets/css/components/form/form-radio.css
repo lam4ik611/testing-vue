@@ -1,0 +1,13 @@
+.form-radio {
+    display: flex;
+    flex-direction: row;
+    font-size: var(--font-size-large);
+    margin-bottom: 20px;
+
+    .radio {
+
+        &:not(:last-child) {
+            margin-right: 45px;
+        }
+    }
+}

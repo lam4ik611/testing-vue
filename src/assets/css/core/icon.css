@@ -1,0 +1,15 @@
+.icon {
+    @extend %transition;
+
+    display: inline-block;
+    fill: var(--gray-500);
+
+    &--svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    &--view {
+        fill: var(--white);
+    }
+}
