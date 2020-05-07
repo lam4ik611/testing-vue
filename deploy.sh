@@ -1,14 +1,17 @@
 #!/usr/bin/env sh
 
-# stop the publication if error
+# abort on errors
 set -e
 
+# build
 npm run build
 
-# to the build catalog
+# navigate into the build output directory
 cd dist
 
-git push -f git@github.com:lam4ik611/lam4ik611.github.io.git master
+git init
+git add -A
+git commit -m 'deploy'
 
 git push -f git@github.com:lam4ik611/testing-vue.git master:gh-pages
 
