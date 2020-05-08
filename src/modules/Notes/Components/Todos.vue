@@ -55,7 +55,7 @@
 </template>
 
 <script>
-    import {mapState, mapActions} from 'vuex';
+    import {mapState} from 'vuex';
 
     export default {
         props: ['type', 'existNote'],
@@ -69,18 +69,13 @@
                 this.getTodos();
             }
         },
-        watch: {
-            todos(value) {
-                this.$emit('sendTodos', value);
-            }
+        updated() {
+            this.$emit('sendTodos', this.todos);
         },
         computed: {
             ...mapState('Notes', ['notes']),
         },
         methods: {
-            ...mapActions({
-                doAddTodo: 'Notes/addTodo',
-            }),
             getTodos() {
                 this.todos = this.existNote.todos;
             },

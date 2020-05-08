@@ -37,7 +37,7 @@
                 </div>
                 <div class="note-page__icon" v-show="type === 'edit'" @click="doResetLastChange">
                     <font-awesome-icon icon="trash-restore-alt" />
-                    <span class="note-page__icon-text">Reset last change</span>
+                    <span class="note-page__icon-text">Reset last changes</span>
                 </div>
                 <router-link :to="{name: 'Home'}" class="note-page__button note-page__button--back">
                     back
@@ -60,11 +60,15 @@
                 type: '',
                 pageTitle: '',
                 title: '',
+                oldTodos: [],
                 todos: [],
             }
         },
         created() {
             this.setVariables(this.$route.name);
+        },
+        mounted() {
+            this.setOldTodos();
         },
         validations: {
             title: {
@@ -102,6 +106,13 @@
                         break;
                 }
             },
+            setOldTodos() {
+                if (!this.note) {
+                    return;
+                }
+
+                this.oldTodos = JSON.stringify(this.note.todos);
+            },
             send() {
                 this.submitted = true;
 
@@ -126,8 +137,9 @@
                                 todos: this.todos,
                             },
                             oldNote: {
-                                ...this.note
-                            }
+                                ...this.note,
+                                todos: JSON.parse(this.oldTodos),
+                            },
                         });
                         break;
                 }
@@ -145,7 +157,11 @@
             doResetLastChange() {
                 this.resetLastChange({
                     noteId: this.note.id,
-                });
+                }).then(() => {
+                    this.$router.push({
+                        name: 'Home',
+                    });
+                })
             },
         },
         components: {

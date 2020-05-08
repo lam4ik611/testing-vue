@@ -69,12 +69,16 @@ export default {
             });
         },
         resetLastChange({state, commit}, data) {
-            const lastChangedNote = Object.values(state.lastChangedNotes).filter(note => note.id === data.noteId)[0],
-                foundIndex = Object.values(state.notes).findIndex(note => note.id === data.noteId);
+            return new Promise(resolve => {
+                const lastChangedNote = Object.values(state.lastChangedNotes).filter(note => note.id === data.noteId)[0],
+                    foundIndex = Object.values(state.notes).findIndex(note => note.id === data.noteId);
+                console.log(lastChangedNote)
 
-            state.notes[foundIndex] = lastChangedNote;
+                state.notes[foundIndex] = lastChangedNote;
 
-            commit('updateNote', state.notes);
+                commit('updateNote', state.notes);
+                resolve();
+            });
         },
     },
 }
