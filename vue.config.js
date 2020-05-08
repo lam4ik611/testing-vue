@@ -1,5 +1,5 @@
 module.exports = {
-    /*publicPath: '/testing-vue/',*/
+    publicPath: process.env.NODE_ENV === 'production' ? '/testing-vue/' : '',
     configureWebpack: {
         module: {
             rules: [
