@@ -1,5 +1,5 @@
 module.exports = {
-    /*publicPath: '/testing-vue/',*/
+    publicPath: '/testing-vue/',
     configureWebpack: {
         module: {
             rules: [
